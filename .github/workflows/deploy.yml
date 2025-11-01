@@ -1,0 +1,17 @@
+name: Deploy to Railway
+on:
+  push:
+    branches: [main]
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build and Push Docker Image
+        run: |
+          docker build -t expenseowl .
+          docker tag expenseowl ${{ secrets.DOCKER_USERNAME }}/expenseowl:latest
+          echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
+          docker push ${{ secrets.DOCKER_USERNAME }}/expenseowl:latest
+      - name: Deploy to Railway
+        run: curl -X POST ${{ secrets.RAILWAY_DEPLOY_HOOK }}  # Add deploy hook from Railway
