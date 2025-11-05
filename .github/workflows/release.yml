@@ -108,8 +108,7 @@ jobs:
           context: .
           platforms: linux/amd64,linux/arm64
           push: true
-        tags: |
-          ${{ secrets.DOCKER_USERNAME }}/expenseowl:main
-          ${{ secrets.DOCKER_USERNAME }}/expenseowl:${{ needs.create-release.outputs.version }}
-
-        #updated here again after debugging with secrets
+          tags: |
+            ${{ secrets.DOCKER_USERNAME }}/expenseowl:main
+            ${{ secrets.DOCKER_USERNAME }}/expenseowl:${{ needs.create-release.outputs.version }}
+  #updated tags
