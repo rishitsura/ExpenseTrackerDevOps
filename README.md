@@ -17,7 +17,7 @@ A simple, self-hosted expense tracking web app built with Go. Track expenses, in
 4. Open `http://localhost:8080` in your browser.
 
 ## Deployment
-Deployed on Render with GitHub Actions for CI/CD.
+Deployed on Render with GitHub Actions for CI/CD: [expenseowl.onrender.com](https://expenseowl.onrender.com)
 
 ### On Render
 - Connect your GitHub repo to Render.
